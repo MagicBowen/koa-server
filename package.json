@@ -1,5 +1,5 @@
 {
-    "name": "koa service",
+    "name": "koa-server",
     "version": "0.0.1",
     "description": "A koa base framework",
     "main": "server.js",

@@ -5,7 +5,7 @@ function syncPost(uri, data) {
     return new Promise(function (resolve, reject) {
         client.post('query', data, function (error, res, body) {
         if (!error && res.statusCode == 200) {
-          resolve(concatReplies(body.reply));
+          resolve(body.reply);
         } else {
           reject(error);
         }
