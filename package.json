@@ -5,7 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "node --use_strict server.js",
-        "test" : "mocha"
+        "test": "mocha"
     },
     "author": "bowen",
     "license": "Apache-2.0",
@@ -18,6 +18,7 @@
         "koa": "^2.5.1",
         "koa-body": "^2.6.0",
         "koa-router": "^7.4.0",
+        "koa-session": "^5.8.1",
         "koa-static": "^4.0.3",
         "koa-views": "^6.1.4",
         "log4js": "^2.8.0",
