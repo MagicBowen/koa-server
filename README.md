@@ -1,1 +1,1 @@
-# KOA BASE FRAMEWORK
+A KOA server kickoff framework.

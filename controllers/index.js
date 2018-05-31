@@ -1,5 +1,5 @@
 var index = async (ctx, next) => {
-    ctx.render('index.html');
+    await ctx.render('index.html');
 };
 
 module.exports = {

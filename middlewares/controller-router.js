@@ -1,7 +1,5 @@
 const fs = require('fs');
-const logger = require('./logger').logger('controller');
-
-// add url-route in /controllers:
+const logger = require('../utils/logger').logger('controller');
 
 function addMapping(router, mapping) {
     for (var url in mapping) {
@@ -27,25 +25,23 @@ function addMapping(router, mapping) {
             router.del(path, mapping[url]);
             logger.info(`register URL mapping: DELETE ${path}`);
         } else {
-            logger.info(`invalid URL: ${url}`);
+            logger.error(`invalid URL: ${url}`);
         }
     }
 }
 
 function addControllers(router, dir) {
-    fs.readdirSync(__dirname + '/' + dir).filter((f) => {
+    fs.readdirSync(dir).filter((f) => {
         return f.endsWith('.js');
     }).forEach((f) => {
         logger.info(`process controller: ${f}...`);
-        let mapping = require(__dirname + '/' + dir + '/' + f);
+        let mapping = require(dir + '/' + f);
         addMapping(router, mapping);
     });
 }
 
 module.exports = function (dir) {
-    let
-        controllers_dir = dir || 'controllers',
-        router = require('koa-router')();
-    addControllers(router, controllers_dir);
+    let router = require('koa-router')();
+    addControllers(router, dir);
     return router.routes();
 };
